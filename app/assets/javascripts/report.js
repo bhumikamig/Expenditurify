@@ -1,4 +1,4 @@
-function render(){
+(function render(){
 	$('#calendar').fullCalendar({
 		header: {
 			left: 'prev,next today',
@@ -10,16 +10,18 @@ function render(){
 		eventLimit: true, // allow "more" link when too many events
 		allDaySlot: false,
 		events: 
-    {
-      url: '/expenses',
-      cache: true,
-      type: 'GET',    
-      error: function (data) {
-        alert(data.statusText);
-      }
-    },
+	    {
+	      url: '/expenses',
+	      cache: true,
+	      type: 'GET',    
+	      error: function (data) {
+	        alert(data.statusText);
+	      }
+	    },
 	});
-}
+})();
 
 $(document).on('page:fetch', render); //page load
+$(document).on('page:load', render);
+$(document).on('page:restore', render);
 $(document).on('page:change', render); //page change

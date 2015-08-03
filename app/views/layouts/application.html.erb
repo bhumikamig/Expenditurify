@@ -50,7 +50,7 @@
           <%if user_signed_in?%> 
             <ul class="nav navbar-nav navbar-right">
               <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-user-secret"></i>&nbsp;<%=current_user.name.humanize %> <span class="caret"></span></a>
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-user-secret"></i>&nbsp;<%=current_user.name.humanize %>&nbsp; <i class="fa fa-user"></i> <span class="caret"></span></a>
                 <%= render 'layouts/navigational_links' %>
               </li>
             </ul>
@@ -70,6 +70,15 @@
         <%= yield %>
       </div><!--/row-->
     </div> <!-- /container -->
-
-  </body>
+     <script type="text/javascript">
+        $('.alert').delay(500).fadeIn('normal', function() {
+          $(this).delay(1000).fadeOut();
+        });
+      </script>
+      <style>
+        .alert{
+          z-index:10000;
+        }
+      </style>
+   </body>
 </html>

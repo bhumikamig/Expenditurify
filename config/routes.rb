@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'report/index'
-
+  get '/search' => 'report#search'
   resources :expenses
 
   resources :expenditure

@@ -1,2 +1,37 @@
-<div id="calendar"></div>
+<div class="col-md-4">
+	<%= form_tag("/search", method: "get", remote: true) do %>
+	  <div class="control-group">
+	    <%= label_tag :item_id, "Select Item", :class => 'control-label' %>
+	    <div class="controls">
+	      <%= select_tag :item_id, options_for_select(Item.all.collect{ |u| [u.name, u.id] }), { :class => 'form-control' } %>
+	    </div>
+	  </div> <br />
+	  <div class="control-group">
+	    <%= label_tag :duration_start, "duration_start", :class => 'control-label' %>
+	    <div class="controls">
+	      <%= date_field_tag :duration_start, '', class: 'form-control' %>
+	    </div>
+	  </div><br />
+	  <div class="control-group">
+	    <%= label_tag :duration_end, "duration_end", :class => 'control-label' %>
+	    <div class="controls">
+	      <%= date_field_tag :duration_end, '', class: 'form-control'%>
+	    </div>
+	  </div><br />
+	  <%= submit_tag("Search") %>
+	<% end %>
+	<br /><br />
+	<div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">Panel title</h3>
+      </div>
+      <div class="panel-body" id="search_result">
+        Panel content
+      </div>
+    </div>
+</div>
+<div class="col-md-8">
+	<div id="calendar"></div>
+</div>
+
 <%= javascript_include_tag "report" %>
