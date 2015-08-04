@@ -1,3 +1,4 @@
+<div class="col-md-6">
 <%= form_for @expense, :html => { :class => "form-horizontal expense" } do |f| %>
 
     <% if @expense.errors.any? %>
@@ -47,3 +48,4 @@
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
     expenses_path, :class => 'btn btn-default' %>
 <% end %>
+</div>
