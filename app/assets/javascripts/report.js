@@ -21,7 +21,7 @@
 	});
 })();
 
-$(document).on('page:fetch', render); //page load
+$(document).on('page:fetch', render); 
 $(document).on('page:load', render);
 $(document).on('page:restore', render);
-$(document).on('page:change', render); //page change
+$(document).on('page:change', render);
